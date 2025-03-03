@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/8ba26cb1dc.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>MDDr. Eva Świerczek</title>
+  </head>
+  <body class="color">
+    <!---------------------------Navigation------------------------->
+    <header id="HeaderId">
+      <div class="mobileView">
+        <!--Dark/light mode-->
+        <div class="logo">
+          <i class="fa-solid fa-tooth"></i>
+        </div>
+        <div class="menu-icon">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+      <div class="normalView">
+        <nav>
+          <ul>
+            <li><a href="#ClinicId">Ordinace</a></li>
+            <li><a href="#FormId">Formulář</a></li>
+            <li><a href="#OpeningTime">Ordinační hodiny</a></li>
+            <li><a href="#Contact">Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!---------------------------Clinic--------------------------------->
+
+    <section id="ClinicId">
+      <div class="clinic">
+        <div class="clinicContainer">
+          <div class="employee">
+            <h2>Lékař</h2>
+            <div class="clinicImgContainer">
+              <img src="Images/Eva.jpg" alt="Dentist" />
+            </div>
+            <h3>MDDr. Eva Świerczek</h3>
+          </div>
+          <div class="employee">
+            <h2>Sestra</h2>
+            <div class="clinicImgContainer">
+              <img src="Images/nurse.jpg" alt="Nurse" />
+            </div>
+            <h3>Ludmila Basovníková</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="clinic">
+        <div class="clinicContainer">
+          <div class="employee equipment">
+            <h2>Křeslo</h2>
+            <div class="clinicImgContainer">
+              <img src="Images/Chair.jpg" alt="Dentist chair" />
+            </div>
+            <h3>Stern Veber</h3>
+          </div>
+          <div class="employee equipment">
+            <h2>Rentgen</h2>
+            <div class="clinicImgContainer">
+              <img src="Images/x-rey.jpg" alt="x-rey" />
+            </div>
+            <h3>Vista scan 300</h3>
+          </div>
+          <div class="employee equipment">
+            <h2>Společné OPG</h2>
+            <div class="clinicImgContainer">
+              <img src="Images/xray-opg.jpg" alt="x-rey" />
+            </div>
+            <h3>OPG super</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!---------------------------Form---------------------------->
+    <section id="FormId" class="formContainer">
+      <form>
+        <h4>
+          Pokud jste naším pacientem a obdrželi jste heslo, můžete se k lékaři
+          objednat pomocí emailu. Vyplňte prosím následující údaje, sestra Vás
+          bude kontaktovat zpět.
+        </h4>
+        <input type="text" placeholder="Jméno a příjmení" class="fullName" />
+        <p class="notName"></p>
+        <input type="email" placeholder="someone@gmail.com" class="email" />
+        <p class="notEmail"></p>
+        <input type="password" placeholder="HESLO" class="firstPassword" />
+        <p class="wrongPassword"></p>
+        <input
+          type="password"
+          placeholder="HESLO ZNOVU"
+          class="secondPassword"
+        />
+        <input type="submit" value="Odeslat" class="sendButton" />
+      </form>
+    </section>
+    <!---------------------------OpeningTime--------------------->
+    <section id="OpeningTime" class="tableSection">
+      <div class="tableContainer">
+        <table>
+          <caption>
+            Ordinační hodiny
+          </caption>
+          <tr class="lineColor">
+            <td></td>
+            <th>Akutní případy</th>
+            <td></td>
+          </tr>
+          <tr class="lineColor2">
+            <th>Pondělí</th>
+            <td>7:30 - 8:00</td>
+            <td>8:00 - 14:00</td>
+          </tr>
+          <tr class="lineColor">
+            <th>Úterý</th>
+            <td>7:30 - 8:00</td>
+            <td>8:00 - 14:00</td>
+          </tr>
+          <tr class="lineColor2">
+            <th>Středa</th>
+            <td>7:30 - 8:00</td>
+            <td>8:00 - 14:00</td>
+          </tr>
+          <tr class="lineColor">
+            <th>Čtvrtek</th>
+            <td>7:30 - 8:00</td>
+            <td>8:00 - 14:00</td>
+          </tr>
+          <tr class="lineColor2">
+            <th>Pátek</th>
+            <td>7:30 - 8:00</td>
+            <td>8:00 - 14:00</td>
+          </tr>
+        </table>
+        <p class="afterTable">
+          Akutní případy (bolesti) ošetřujeme rovněž po předchozí telefonické
+          domluvě, alespoň den předem.
+        </p>
+      </div>
+    </section>
+
+    <!---Button-->
+
+    <div class="upButton">
+      <p>^</p>
+    </div>
+
+    <!---------------------------Contact------------------------->
+    <section id="Contact"></section>
+    <footer>
+      <div class="AuthorContact">
+        <p>Author:</p>
+        <a href="mailto:swdaniel@seznam.cz">Daniel Świerczek</a>
+      </div>
+      <p>© 2022 - All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
