@@ -1,3 +1,19 @@
+const menuIcon = document.querySelector(".menu-icon");
+const menuList = document.querySelector("nav");
+const hamburgerIcon = document.querySelector(".choosen");
+
+menuIcon.addEventListener("click", () => {
+  if (hamburgerIcon.classList[2] === "fa-bars") {
+    hamburgerIcon.classList.add("fa-xmark");
+    hamburgerIcon.classList.remove("fa-bars");
+    menuList.style.display = "block";
+  } else {
+    hamburgerIcon.classList.add("fa-bars");
+    hamburgerIcon.classList.remove("fa-xmark");
+    menuList.style.display = "none";
+  }
+});
+
 const darkLightButton = document.querySelector(".logo");
 const body = document.querySelector("body");
 
@@ -74,3 +90,17 @@ form.addEventListener("submit", (event) => {
     notEmail.textContent = "Vyplňte prosím email";
   } else notEmail.textContent = "";
 });
+
+/*MAP*/
+
+function myMap() {
+  var mapProp = {
+    center: new google.maps.LatLng(49.57455095613252, 18.76362800639648),
+    zoom: 17,
+  };
+  var map = new google.maps.Map(document.querySelector(".mapsGoogle"), mapProp);
+
+  var marker = new google.maps.Marker({ position: mapProp.center });
+
+  marker.setMap(map);
+}

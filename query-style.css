@@ -1,0 +1,46 @@
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+  }
+  .logo {
+    margin-left: 10%;
+  }
+  .mobileView {
+    width: 100%;
+  }
+
+  header nav {
+    display: none;
+    top: 70px;
+    background-color: #15304c;
+    width: 100%;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  .normalView {
+    width: 100%; /* li through all display width*/
+  }
+
+  header nav li {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .menu-icon {
+    display: block;
+    color: white;
+    font-size: 23px;
+  }
+}
+
+@media (min-width: 600px) {
+  header nav {
+    display: block !important;
+  }
+}

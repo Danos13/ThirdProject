@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="query-style.css" />
     <script
       src="https://kit.fontawesome.com/8ba26cb1dc.js"
       crossorigin="anonymous"
     ></script>
+
     <title>MDDr. Eva Świerczek</title>
   </head>
   <body class="color">
@@ -19,7 +21,7 @@
           <i class="fa-solid fa-tooth"></i>
         </div>
         <div class="menu-icon">
-          <i class="fa-solid fa-bars"></i>
+          <i class="choosen fa-solid fa-bars"></i>
         </div>
       </div>
       <div class="normalView">
@@ -41,7 +43,7 @@
         <div class="clinicContainer">
           <div class="employee">
             <h2>Lékař</h2>
-            <div class="clinicImgContainer">
+            <div class="clinicImgContainer doctor">
               <img src="Images/Eva.jpg" alt="Dentist" />
             </div>
             <h3>MDDr. Eva Świerczek</h3>
@@ -142,6 +144,7 @@
             <td>8:00 - 14:00</td>
           </tr>
         </table>
+
         <p class="afterTable">
           Akutní případy (bolesti) ošetřujeme rovněž po předchozí telefonické
           domluvě, alespoň den předem.
@@ -149,15 +152,26 @@
       </div>
     </section>
 
-    <!---Button-->
+    <!---------------------------Button-------------------------->
 
     <div class="upButton">
       <p>^</p>
     </div>
 
     <!---------------------------Contact------------------------->
-    <section id="Contact"></section>
+    <section id="Contact">
+      <div class="contactContainer">
+        <div class="contactNotes">
+          <h2>Kontakt</h2>
+          <p>email: <a href="eva@seznam.cz">eva@seznam.cz</a></p>
+          <p>tel: 123 456 789</p>
+          <p>adresa: Jablunkov, Školní</p>
+        </div>
+        <div class="mapsGoogle"></div>
+      </div>
+    </section>
     <footer>
+      <!--------------------------Footer------------------------->
       <div class="AuthorContact">
         <p>Author:</p>
         <a href="mailto:swdaniel@seznam.cz">Daniel Świerczek</a>
@@ -166,5 +180,10 @@
     </footer>
 
     <script src="script.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFeMlxWgKTTWrTasUUz3o2jeblL5RWkSk&callback=myMap"
+      async
+      defer
+    ></script>
   </body>
 </html>
