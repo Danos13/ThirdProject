@@ -1,31 +1,69 @@
+/*Response menu */
+
+class ResponseMenu {
+  addClass = (htmlElement, whichClass) => {
+    htmlElement.classList.add(whichClass);
+  };
+
+  removeClass = (htmlElement, whichClass) => {
+    htmlElement.classList.remove(whichClass);
+  };
+
+  menuListNav = (htmlElement, property) => {
+    htmlElement.style.display = property;
+  };
+}
+
 const menuIcon = document.querySelector(".menu-icon");
 const menuList = document.querySelector("nav");
 const hamburgerIcon = document.querySelector(".choosen");
 
+const responseMenu = new ResponseMenu();
+
 menuIcon.addEventListener("click", () => {
   if (hamburgerIcon.classList[2] === "fa-bars") {
-    hamburgerIcon.classList.add("fa-xmark");
-    hamburgerIcon.classList.remove("fa-bars");
-    menuList.style.display = "block";
+    responseMenu.addClass(hamburgerIcon, "fa-xmark");
+    responseMenu.removeClass(hamburgerIcon, "fa-bars");
+    responseMenu.menuListNav(menuList, "block");
   } else {
-    hamburgerIcon.classList.add("fa-bars");
-    hamburgerIcon.classList.remove("fa-xmark");
-    menuList.style.display = "none";
+    responseMenu.addClass(hamburgerIcon, "fa-bars");
+    responseMenu.removeClass(hamburgerIcon, "fa-xmark");
+    responseMenu.menuListNav(menuList, "none");
   }
 });
+
+/* Dark-light mode*/
+
+class DarkLightButton {
+  darkOrLight(htmlElement, className) {
+    htmlElement.classList.toggle(className);
+  }
+}
 
 const darkLightButton = document.querySelector(".logo");
 const body = document.querySelector("body");
 
+const buttonDarkLigt = new DarkLightButton();
+
 darkLightButton.addEventListener("click", () => {
-  body.classList.toggle("colorDark");
+  buttonDarkLigt.darkOrLight(body, "colorDark");
 });
+
+/* Up button*/
+
+class UpButton {
+  constructor() {
+    this.addOrRemoveClass = new ResponseMenu(); /* I choose composition here */
+  }
+}
 
 const upButton = document.querySelector(".upButton");
 
+const buttonUp = new UpButton();
+
 window.addEventListener("scroll", () => {
   if (scrollY >= 150) {
-    upButton.classList.add("upButtonShow");
+    buttonUp.addOrRemoveClass.addClass(upButton, "upButtonShow");
     upButton.addEventListener("click", () => {
       window.scrollTo({
         top: 0,
@@ -34,9 +72,11 @@ window.addEventListener("scroll", () => {
       });
     });
   } else {
-    upButton.classList.remove("upButtonShow");
+    buttonUp.addOrRemoveClass.removeClass(upButton, "upButtonShow");
   }
 });
+
+/* Form password */
 
 const firstPassword = document.querySelector(".firstPassword");
 const secondPassword = document.querySelector(".secondPassword");
@@ -74,6 +114,12 @@ secondPassword.addEventListener("input", () => {
     sendButton.style.display = "block";
   }
 });
+
+/* Form email */
+
+class EmailForm {
+  constructor(fullName, email) {}
+}
 
 const fullName = document.querySelector(".fullName");
 const email = document.querySelector(".email");
