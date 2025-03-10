@@ -76,65 +76,64 @@ window.addEventListener("scroll", () => {
   }
 });
 
-/* Form password */
-
-const firstPassword = document.querySelector(".firstPassword");
-const secondPassword = document.querySelector(".secondPassword");
-const wrongPassword = document.querySelector(".wrongPassword");
-const sendButton = document.querySelector(".sendButton");
-
-firstPassword.addEventListener("input", () => {
-  if (firstPassword.value !== secondPassword.value) {
-    wrongPassword.textContent = "Hesla nejsou schodné";
-    wrongPassword.classList.add("invalid");
-    wrongPassword.classList.remove("valid");
-    sendButton.style.display = "none";
-  } else if (firstPassword.value === "" && secondPassword.value === "") {
-    wrongPassword.textContent = "";
-  } else {
-    wrongPassword.textContent = "Hesla jsou schodné";
-    wrongPassword.classList.add("valid");
-    wrongPassword.classList.remove("invalid");
-    sendButton.style.display = "block";
-  }
-});
-
-secondPassword.addEventListener("input", () => {
-  if (firstPassword.value !== secondPassword.value) {
-    wrongPassword.textContent = "Hesla nejsou schodné";
-    wrongPassword.classList.add("invalid");
-    wrongPassword.classList.remove("valid");
-    sendButton.style.display = "none";
-  } else if (firstPassword.value === "" && secondPassword.value === "") {
-    wrongPassword.textContent = "";
-  } else {
-    wrongPassword.textContent = "Hesla jsou schodné";
-    wrongPassword.classList.add("valid");
-    wrongPassword.classList.remove("invalid");
-    sendButton.style.display = "block";
-  }
-});
-
 /* Form email */
 
-class EmailForm {
-  constructor(fullName, email) {}
+class Form {
+  constructor(nameAndemail, passwords) {
+    this.name = nameAndEmail[0];
+    this.email = nameAndEmail[1];
+    this.passwords = passwords;
+    this.classAddRemove = new ResponseMenu();
+  }
+
+  textContentChange(htmlElement, text) {
+    htmlElement.textContent = text;
+  }
+
+  htmlTagCleaner = (htmlTag, button, property) => {
+    if (this.passwords[0].value == "" && this.passwords[1].value == "") {
+      htmlTag.textContent = "";
+      this.classAddRemove.menuListNav(button, property);
+    }
+  };
 }
 
-const fullName = document.querySelector(".fullName");
-const email = document.querySelector(".email");
+const nameAndEmail = document.querySelectorAll(".nameAndEmail");
 const form = document.querySelector("form");
 const notEmail = document.querySelector(".notEmail");
 const notName = document.querySelector(".notName");
+const passwords = document.querySelectorAll(".passwords");
+const wrongPassword = document.querySelector(".wrongPassword");
+const sendButton = document.querySelector(".sendButton");
+
+const myForm = new Form(nameAndEmail, passwords);
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  if (fullName.value === "") {
-    notName.textContent = "Vyplňte prosím jméno a příjmení";
-  } else notName.textContent = "";
-  if (email.value === "") {
-    notEmail.textContent = "Vyplňte prosím email";
-  } else notEmail.textContent = "";
+  if (myForm.name.value === "") {
+    myForm.textContentChange(notName, "Vyplňte prosím jméno a příjmení");
+  } else myForm.textContentChange(notName, "");
+  if (myForm.email.value === "") {
+    myForm.textContentChange(notEmail, "Vyplňte prosím email");
+  } else myForm.textContentChange(notEmail, "");
+});
+
+myForm.passwords.forEach((element) => {
+  element.addEventListener("input", () => {
+    if (myForm.passwords[0].value !== myForm.passwords[1].value) {
+      myForm.textContentChange(wrongPassword, "Hesla nejsou schodné");
+      myForm.classAddRemove.addClass(wrongPassword, "invalid");
+      myForm.classAddRemove.removeClass(wrongPassword, "valid");
+      myForm.classAddRemove.menuListNav(sendButton, "none");
+    } else {
+      myForm.textContentChange(wrongPassword, "Hesla jsou schodné");
+      myForm.classAddRemove.addClass(wrongPassword, "valid");
+      myForm.classAddRemove.removeClass(wrongPassword, "invalid");
+      myForm.classAddRemove.menuListNav(sendButton, "block");
+    }
+
+    myForm.htmlTagCleaner(wrongPassword, sendButton, "none");
+  });
 });
 
 /*MAP*/
